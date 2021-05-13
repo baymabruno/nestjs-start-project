@@ -9,6 +9,9 @@
     "type": "git",
     "url": "https://github.com/baymabruno/nestjs-start-project"
   },
+  "engines": {
+    "node": "16.0.0"
+  },  
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
