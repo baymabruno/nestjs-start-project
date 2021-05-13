@@ -5,12 +5,11 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './authorization/authorization.module';
 import { AuthorizeGuard } from './authorization/guards/authorize.guard';
-import { UserController } from './users/user.controller';
 import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [ConfigModule.forRoot({ isGlobal: true }), AuthModule, UsersModule],
-  controllers: [UserController, AppController],
+  controllers: [AppController],
   providers: [
     AppService,
     {
