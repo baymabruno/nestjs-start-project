@@ -1,13 +1,13 @@
 {
   "name": "nestjs-start-project",
-  "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "version": "1.0.1",
+  "description": "Projeto Base node utilizando NestJS",
+  "author": "Bayma",
   "private": true,
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/baymabruno/nest-base-project"
+    "url": "https://github.com/baymabruno/nestjs-start-project"
   },
   "scripts": {
     "prebuild": "rimraf dist",
