@@ -8,7 +8,6 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   const logger = new Logger();
-  const port = process.env.PORT || 3000;
 
   const options = new DocumentBuilder()
     .addBearerAuth()
@@ -35,7 +34,7 @@ async function bootstrap() {
     credentials: true,
   });
 
-  await app.listen(port);
+  await app.listen(process.env.PORT);
 
   logger.log(`Server is listening on: ${await app.getUrl()}`);
 }
