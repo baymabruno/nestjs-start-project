@@ -61,7 +61,6 @@ export class AuthorizeGuard implements CanActivate {
     // Check user role and rote allowed Roles
     for (const userRole of user.roles) {
       if (roles.includes(userRole)) {
-        console.log(user);
         return true;
       }
     }
