@@ -33,6 +33,8 @@ export class AuthorizationController {
   @UseGuards(JwtAuthGuard)
   @ApiBearerAuth()
   getProfile(@Request() req: Req): any {
+    // console.log(req);
+
     return req.user;
   }
 }
