@@ -17,7 +17,6 @@ export class AuthorizationService {
     const payload = {
       username: loggedUser.username,
       userId: loggedUser.userId,
-      roles: loggedUser.roles,
     };
 
     return this.jwtService.sign(payload);
