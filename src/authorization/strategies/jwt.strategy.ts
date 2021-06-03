@@ -4,7 +4,11 @@ import { ExtractJwt, Strategy } from 'passport-jwt';
 import { UsersService } from 'src/users/users.service';
 import { jwtConstants } from '../constants/authorization.constants';
 
-export type ValidatePayalod = any;
+export class ValidatePayalod {
+  userId: string;
+  username: string;
+  roles: [string];
+}
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {

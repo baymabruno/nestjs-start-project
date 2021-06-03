@@ -7,13 +7,13 @@ export type User = any;
 export class UsersService {
   private readonly users = [
     {
-      userId: 1,
+      userId: '1',
       username: 'bayma',
       password: '$2b$10$y9NEfA5/Byz.YVo4htUvcu4HAsUAtj4uJ5Fo/dH0BFBgqUU.Rq4Ba', //teste
       roles: [rolesConstants.admin],
     },
     {
-      userId: 2,
+      userId: '2',
       username: 'maria',
       password: '$2b$10$y9NEfA5/Byz.YVo4htUvcu4HAsUAtj4uJ5Fo/dH0BFBgqUU.Rq4Ba', //teste
       roles: [rolesConstants.gest],

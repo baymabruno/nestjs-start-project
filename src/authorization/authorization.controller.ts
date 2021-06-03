@@ -9,12 +9,10 @@ import {
 import { ApiBearerAuth, ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { rolesConstants } from 'src/users/constants/user.constants';
 import { AuthorizationService } from './authorization.service';
-import { Login } from './dto/login.dto';
+import { UserLogged } from './dto/user-logged.dto';
+import { UserLogin } from './dto/user-login.dto';
 import { Authorize } from './guards/authorize.decorator';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
-
-/** @todo criar objeto */
-export type Req = any;
 
 @ApiTags('Authorization')
 @Controller('api/auth')
@@ -22,19 +20,22 @@ export class AuthorizationController {
   constructor(private readonly authorizationService: AuthorizationService) {}
 
   @Post('/login')
-  @ApiBody({ type: Login })
-  @ApiResponse({ status: 200, description: '', type: String })
-  async login(@Body() user: Login): Promise<string> {
+  @ApiBody({ type: UserLogin })
+  @ApiResponse({
+    status: 200,
+    description: 'Authorization token',
+    type: String,
+  })
+  async login(@Body() user: UserLogin): Promise<string> {
     return this.authorizationService.login(user);
   }
 
-  @Get('profile')
+  @Get('/profile')
   @Authorize(rolesConstants.admin)
   @UseGuards(JwtAuthGuard)
   @ApiBearerAuth()
-  getProfile(@Request() req: Req): any {
-    // console.log(req);
-
+  @ApiResponse({ status: 200, description: 'Logged user', type: UserLogged })
+  getProfile(@Request() req: any): UserLogged {
     return req.user;
   }
 }
